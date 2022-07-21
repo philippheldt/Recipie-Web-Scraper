@@ -38,8 +38,8 @@ axios(url)
     console.log(error);
   });
 
-  app.get("/", (req, res) => {
-    res.send(rezept);
-  }
+app.get("/", (req, res) => {
+  res.send(rezept);
+});
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
