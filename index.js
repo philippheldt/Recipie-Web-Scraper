@@ -39,7 +39,7 @@ axios(url)
   });
 
 app.get("/", (req, res) => {
-  res.send(rezept);
+  res.json(rezept);
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
