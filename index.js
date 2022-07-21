@@ -1,4 +1,4 @@
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const axios = require("axios");
 const cheerio = require("cheerio");
 const express = require("express");
@@ -29,9 +29,7 @@ axios(url)
       zutaten.push({ menge, zutat });
     });
 
-    rezept["titel"]= title,
-
-    console.log(zutaten);
+    (rezept["titel"] = title), console.log(zutaten);
     rezept["zutaten"] = zutaten;
     console.log(rezept);
   })
