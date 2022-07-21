@@ -25,7 +25,7 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
       });
 
       $("article", html).each(function () {
-        schritte = $(this).find("div", 0).text();
+        schritte = $(this).find(".ds-box", 0).text();
         console.log(schritte);
       });
 
