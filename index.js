@@ -16,7 +16,7 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
 
       const zutaten = [];
       var title = "";
-      var portions = 5;
+      var portions = "";
 
       $(".ds-input", html).each(function () {
         portions = $(this).attr("value");
@@ -35,8 +35,8 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
         zutaten.push({ menge, zutat });
       });
 
-      rezept["titel"] = title; 
-      rezept["portion"] = portions; 
+      rezept["titel"] = title;
+      rezept["portion"] = portions;
       rezept["zutaten"] = zutaten;
       console.log(rezept);
     })
