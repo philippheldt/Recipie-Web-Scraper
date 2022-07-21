@@ -7,7 +7,7 @@ const app = express();
 var rezept = {};
 
 app.get("/:recipieURL", (req, res) => {
-  const url = req.params.recipieURL;
+  const url = "https://www.chefkoch.de/rezepte/" + req.params.recipieURL + ".html";
   axios(url)
     .then((response) => {
       const html = response.data;
