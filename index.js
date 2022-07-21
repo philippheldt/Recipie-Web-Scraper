@@ -20,7 +20,7 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
       var schritte = "";
 
       $(".ds-input", html).each(function () {
-        portions = $(this).find.attr("value");
+        portions = $(this).attr("value");
         console.log(portions);
       });
 
