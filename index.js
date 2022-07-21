@@ -24,8 +24,8 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
         console.log(portions);
       });
 
-      $("article", html).each(function () {
-        schritte = $(this).find(".ds-box", 0).text();
+      $(".ds-or-3>.ds-box", html).each(function () {
+        schritte = $(this).text();
         console.log(schritte);
       });
 
