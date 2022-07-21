@@ -45,7 +45,7 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
       rezept["titel"] = title;
       rezept["portion"] = portions;
       rezept["zutaten"] = zutaten;
-      rezept["schritte"] = zutaten;
+      rezept["schritte"] = schritte;
       console.log(rezept);
     })
     .catch((error) => {
