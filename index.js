@@ -4,6 +4,7 @@ const cheerio = require("cheerio");
 const express = require("express");
 
 const app = express();
+var rezept = {};
 
 const url =
   "https://www.chefkoch.de/rezepte/1943541316436206/Zucchini-Karotten-Bandnudeln-mit-Haehnchen-und-Tomate.html";
@@ -12,7 +13,7 @@ axios(url)
   .then((response) => {
     const html = response.data;
     const $ = cheerio.load(html);
-    var rezept = {};
+
     const zutaten = [];
     var title = "";
 
@@ -36,5 +37,9 @@ axios(url)
   .catch((error) => {
     console.log(error);
   });
+
+  app.get("/", (req, res) => {
+    res.send(rezept);
+  }
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
