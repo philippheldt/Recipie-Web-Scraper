@@ -16,12 +16,18 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
 
       const zutaten = [];
       var title = "";
-      var portions = "hallo";
+      var portions = "5";
+      var schritte = "";
 
-      //   $(".ds-input", html).each(function () {
-      //     portions = $(this).attr("value");
-      //     console.log(portions);
-      //   });
+      $(".ds-input", html).each(function () {
+        portions = $(this).attr("value");
+        console.log(portions);
+      });
+
+      $("article", html).each(function () {
+        schritte = $(this).find("div", 0).text();
+        console.log(schritte);
+      });
 
       $("h1", html).each(function () {
         title = $(this).text();
@@ -39,6 +45,7 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
       rezept["titel"] = title;
       rezept["portion"] = portions;
       rezept["zutaten"] = zutaten;
+      rezept["schritte"] = zutaten;
       console.log(rezept);
     })
     .catch((error) => {
