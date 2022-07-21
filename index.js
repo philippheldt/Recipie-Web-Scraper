@@ -6,9 +6,8 @@ const express = require("express");
 const app = express();
 var rezept = {};
 
-app.get("/", (req, res) => {
-  const url =
-    "https://www.chefkoch.de/rezepte/1943541316436206/Zucchini-Karotten-Bandnudeln-mit-Haehnchen-und-Tomate.html";
+app.get("/:recipieURL", (req, res) => {
+  const url = req.params.recipieURL;
   axios(url)
     .then((response) => {
       const html = response.data;
