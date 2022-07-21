@@ -16,11 +16,12 @@ app.get("/chefkoch/:recipieURL", (req, res) => {
 
       const zutaten = [];
       var title = "";
-      var portions = "";
+      var portions = "hallo";
 
-      $(".ds-input", html).each(function () {
-        portions = $(this).attr("value");
-      });
+      //   $(".ds-input", html).each(function () {
+      //     portions = $(this).attr("value");
+      //     console.log(portions);
+      //   });
 
       $("h1", html).each(function () {
         title = $(this).text();
