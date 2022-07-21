@@ -1,21 +1,39 @@
 const PORT = 8000;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { response } = require("express");
 const express = require("express");
 
 const app = express();
 
-const url = "https://www.chefkoch.de/rezepte/529741149741836/Zucchini-Zitronen-Nudeln.html";
+const url =
+  "https://www.chefkoch.de/rezepte/1943541316436206/Zucchini-Karotten-Bandnudeln-mit-Haehnchen-und-Tomate.html";
 
 axios(url)
   .then((response) => {
     const html = response.data;
     const $ = cheerio.load(html);
-    $("h1").each(function () {
-      const title = $(this).text();
-      console.log(title);
+    var rezept = {};
+    const zutaten = [];
+    var title = "";
+
+    $("h1", html).each(function () {
+      title = $(this).text();
     });
+
+    $("tr", html).each(function () {
+      var menge = $(this).find(".td-left").text();
+      menge = menge.replace(/\s/g, "");
+
+      var zutat = $(this).find(".td-right").text();
+      zutat = zutat.trim();
+      zutaten.push({ menge, zutat });
+    });
+
+    rezept["titel"]= title,
+
+    console.log(zutaten);
+    rezept["zutaten"] = zutaten;
+    console.log(rezept);
   })
   .catch((error) => {
     console.log(error);
